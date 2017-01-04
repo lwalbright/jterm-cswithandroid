@@ -18,6 +18,7 @@ package com.google.engedu.anagrams;
 
 import android.support.annotation.VisibleForTesting;
 import android.text.TextUtils;
+import android.util.Log;
 
 import org.w3c.dom.Text;
 
@@ -25,6 +26,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -38,7 +40,8 @@ public class AnagramDictionary {
     private static final int DEFAULT_WORD_LENGTH = 3;
     private static final int MAX_WORD_LENGTH = 7;
     private Random random = new Random();
-
+    public ArrayList<String> wordList = new ArrayList<String>();
+    public HashSet<String> wordSet = new HashSet<String>();
     private HashMap<String, ArrayList<String>> lettersToWord = new HashMap<>();
 
     public AnagramDictionary(InputStream wordListStream) throws IOException {
@@ -46,6 +49,16 @@ public class AnagramDictionary {
         String line;
         while((line = in.readLine()) != null) {
             String word = line.trim();
+            wordList.add(word);
+            wordSet.add(word);
+            if(lettersToWord.containsKey(sortLetters(word))){
+                lettersToWord.get(sortLetters(word)).add(word);
+            }
+            else{
+                ArrayList<String> wordArray = new ArrayList<String>();
+                wordArray.add(word);
+                lettersToWord.put(sortLetters(word),wordArray);
+            }
             //
             //  Your code here
             //
@@ -53,17 +66,23 @@ public class AnagramDictionary {
     }
 
     public boolean isGoodWord(String word, String base) {
-        //
-        // Your code here
-        //
+        if(!wordSet.contains(word)){
+            return false;
+        }
+        if(word.toLowerCase().contains(base.toLowerCase())){ //TODO: idk if this works
+            return false;
+        }
         return true;
     }
 
     public ArrayList<String> getAnagrams(String targetWord) {
         ArrayList<String> result = new ArrayList<String>();
-        //
-        // Your code here
-        //
+        String targetSort = sortLetters(targetWord);
+        for(int i=0;i<wordList.size();i++){
+            if(targetSort.equalsIgnoreCase(sortLetters(wordList.get(i)))){
+                result.add(wordList.get(i));
+            }
+        }
         return result;
     }
 
@@ -72,23 +91,36 @@ public class AnagramDictionary {
         //
         // Your code here
         //
+
         return true;
     }
 
     @VisibleForTesting
     static String sortLetters(String input) {
         char[] chars = input.toCharArray();
+        Arrays.sort(chars);
+        String result = new String(chars);
+        Log.d("results",result);
         //
         // Your code here
         //
-        return "";
+        return result;
     }
 
     public ArrayList<String> getAnagramsWithOneMoreLetter(String word) {
         ArrayList<String> result = new ArrayList<String>();
-        //
-        // Your code here
-        //
+        String[] alphabet = {"a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"};
+        for(int i=0;i<alphabet.length;i++){
+            String sortedWord = sortLetters(word+alphabet[i]);
+            ArrayList<String> anagrams = lettersToWord.get(sortedWord);
+            if(anagrams!=null) {
+                for (int j = 0; j < anagrams.size(); j++) {
+                    result.add(anagrams.get(j));
+                }
+            }
+        }
+
+
         return result;
     }
 
