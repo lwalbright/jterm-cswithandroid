@@ -88,10 +88,10 @@ public class AnagramDictionary {
 
     @VisibleForTesting
     static boolean isAnagram(String first, String second) {
-        //
-        // Your code here
-        //
+        Log.d("Testing construct","reading test dict");
+        //for(int i=0;i<words.length;i++){
 
+       // }
         return true;
     }
 

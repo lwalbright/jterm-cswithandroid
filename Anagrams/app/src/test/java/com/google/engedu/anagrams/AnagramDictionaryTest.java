@@ -16,30 +16,43 @@
 
 package com.google.engedu.anagrams;
 
+import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.powermock.api.mockito.PowerMockito;
+import org.powermock.core.classloader.annotations.PrepareForTest;
+import org.powermock.modules.junit4.PowerMockRunner;
 
 import static org.junit.Assert.*;
 
 import android.text.TextUtils;
+import android.util.Log;
 
 
 /**
  * Tests for AnagramDictionary
  */
+@RunWith(PowerMockRunner.class)
+@PrepareForTest({Log.class})
 
 public class AnagramDictionaryTest {
-    @Test
-    public void testSortLetters() {
-        assertEquals(AnagramDictionary.sortLetters("a"), "a");
+    @Before
+    public void beforeEach() {
+        PowerMockito.mockStatic(Log.class);
     }
-
     @Test
-    public void testIsAnagram() {
-        assertTrue(AnagramDictionary.isAnagram("a", "a"));
+    public void testAddition(){
+        assertEquals(3,1+2);
     }
+    public void sortLetters(){
+        assertEquals("a",AnagramDictionary.sortLetters("a"));
+        assertEquals("opst",AnagramDictionary.sortLetters("stop"));
+        assertEquals("",AnagramDictionary.sortLetters(""));
+    }
+    public void isAnagram(){
+        assertTrue(AnagramDictionary.isAnagram("cat","act"));
+        assertFalse(AnagramDictionary.isAnagram("potato","potata"));
+        assertFalse(AnagramDictionary.isAnagram("cat","cats"));
 
-    @Test
-    public void testIsGoodWord() {
-       // TODO: This may need to be in AndroidTest
     }
 }
