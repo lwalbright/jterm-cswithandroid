@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    private void computerTurn(){ //TODO: The issue is the computer continues to roll after it gets a 1.
+    private void computerTurn(){ //TODO: The issue is the computer continues to roll after it gets a 1. also need to add compturn to roll
         Button holdButton = (Button) findViewById(R.id.four);
         Button rollButton = (Button) findViewById(R.id.three);
         holdButton.setClickable(false);

@@ -40,7 +40,7 @@ public class SimpleDictionary implements GhostDictionary {
             String word = line.trim();
             if (word.length() >= MIN_WORD_LENGTH)
               words.add(line.trim());
-        }
+        } //TODO: make a hashset for quick lookup in the isWord method 
     }
 
     @VisibleForTesting
@@ -56,6 +56,32 @@ public class SimpleDictionary implements GhostDictionary {
 
     @Override
     public String getAnyWordStartingWith(String prefix) {
+        int lengthdict = words.size();
+        int low =0;
+        int high = lengthdict-1;
+        if(prefix==""){
+            Random rand = new Random();
+            return(words.get(rand.nextInt(words.size())));
+        }
+        while(low<=high){
+            int mid=(high+low)/2; //floor rounding
+            if(words.get(mid).toLowerCase().startsWith(prefix)){
+                return words.get(mid);
+            }
+            if(words.get(mid).toLowerCase().compareTo(prefix)>0){
+                high = mid - 1;
+               // Log.d("if","less than zero");
+            }
+            else if(words.get(mid).toLowerCase().compareTo(prefix)<0){
+                low = mid + 1;
+             //   Log.d("if","greater than zero");
+            }
+            else{
+                //Log.d("if","equals");
+                return words.get(mid);
+            }
+
+        }
         return null;
     }
 

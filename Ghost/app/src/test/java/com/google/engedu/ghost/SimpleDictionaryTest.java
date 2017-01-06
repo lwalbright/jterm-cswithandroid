@@ -26,16 +26,29 @@ import java.util.Arrays;
 import static junit.framework.Assert.assertNotNull;
 import static junit.framework.TestCase.assertEquals;
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
 public class SimpleDictionaryTest {
-
+    String[] wordsArray = {"apple","bat","car","cats","horse","tree","zebra"};
     @Test
     public void testIsWord() {
+
     }
 
     @Test
     public void testGetAnyWordStartingWith() {
+        ArrayList<String> words = new ArrayList<>(Arrays.asList(wordsArray));
+        SimpleDictionary dict = new SimpleDictionary(words, 0);
+        //assertEquals("apple", dict.getAnyWordStartingWith("a"));
+        //assertEquals("zebra", dict.getAnyWordStartingWith("z"));
+        //assertNotEquals("cat", dict.getAnyWordStartingWith("f"));
+        //assertEquals("cat", dict.getAnyWordStartingWith("c"));
+        //assertEquals("apple",dict.getAnyWordStartingWith("apple"));
+        assertNotNull(dict.getAnyWordStartingWith(""));
+        System.out.println(dict.getAnyWordStartingWith(""));
+
     }
+
 }

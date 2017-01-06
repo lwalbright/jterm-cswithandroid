@@ -51,7 +51,7 @@
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lwalbright/scarne/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="116">
-              <caret line="27" column="103" selection-start-line="27" selection-start-column="103" selection-end-line="27" selection-end-column="103" />
+              <caret line="27" column="137" selection-start-line="27" selection-start-column="137" selection-end-line="27" selection-end-column="137" />
               <folding />
             </state>
           </provider>
@@ -1851,7 +1851,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Anagrams" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Ghost" />
     <property name="UI_DESIGNER_EDITOR_MODE.NlPaletteManager-NlPreviewForm.SHOW" value="false" />
     <property name="device.picker.selection" value="TA093080DO" />
     <property name="FullScreen" value="true" />
@@ -2140,7 +2140,7 @@
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lwalbright/scarne/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="116">
-          <caret line="27" column="103" selection-start-line="27" selection-start-column="103" selection-end-line="27" selection-end-column="103" />
+          <caret line="27" column="137" selection-start-line="27" selection-start-column="137" selection-end-line="27" selection-end-column="137" />
           <folding />
         </state>
       </provider>
