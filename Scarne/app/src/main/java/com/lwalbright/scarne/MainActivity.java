@@ -25,17 +25,18 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    private void computerTurn(){ //TODO: The issue is the computer continues to roll after it gets a 1. also need to add compturn to roll
+    private void computerTurn(){
         Button holdButton = (Button) findViewById(R.id.four);
         Button rollButton = (Button) findViewById(R.id.three);
         holdButton.setClickable(false);
         rollButton.setClickable(false);
-        while(compTurnScore<20&&!turn){
+        while(compTurnScore<20&&turn==false){
             rollHelper();
             viewUpdate(null);
-            Log.d("comp roll",result+"");
         }
-        hold(null);
+        compOverallScore+=compTurnScore;
+        compTurnScore=0;
+        turn=true;
         viewUpdate(null);
         holdButton.setClickable(true);
         rollButton.setClickable(true);
@@ -53,11 +54,12 @@ public class MainActivity extends AppCompatActivity {
         if(result==1){
             if(turn){
                 userTurnScore=0;
+                turn=false;
             }
-            if(!turn){
+            else{
                 compTurnScore=0;
+                turn=true;
             }
-            turn=!turn;
         }
     }
 
@@ -82,6 +84,9 @@ public class MainActivity extends AppCompatActivity {
 
     public void rollDice(View v){
         rollHelper();
+        if(result==1&&!turn){
+            computerTurn();
+        }
         viewUpdate(null);
     }
 
@@ -102,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
         compTurnScore=0;
         turn=!turn;
         if(!turn) {
-            computerTurn();
+            computerTurn(); 
         }
         viewUpdate(null);
     }
