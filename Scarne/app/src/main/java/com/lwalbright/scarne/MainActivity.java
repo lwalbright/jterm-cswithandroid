@@ -74,12 +74,24 @@ public class MainActivity extends AppCompatActivity {
                     + " \nYour turn score " + userTurnScore + " Computer turn score " + compTurnScore + "\nComputer's turn!");
         }
         ImageView view = (ImageView) findViewById(R.id.two);
-        if(result==1){view.setImageDrawable(getResources().getDrawable(R.drawable.dice1)); }
-        if(result==2){view.setImageDrawable(getResources().getDrawable(R.drawable.dice2)); }
-        if(result==3){view.setImageDrawable(getResources().getDrawable(R.drawable.dice3)); }
-        if(result==4){view.setImageDrawable(getResources().getDrawable(R.drawable.dice4)); }
-        if(result==5){view.setImageDrawable(getResources().getDrawable(R.drawable.dice5)); }
-        if(result==6){view.setImageDrawable(getResources().getDrawable(R.drawable.dice6)); }
+        if(result==1){view.setImageDrawable(getResources().getDrawable(R.drawable.dice1));
+            view.setContentDescription("Dice 1");
+        }
+        if(result==2){view.setImageDrawable(getResources().getDrawable(R.drawable.dice2));
+            view.setContentDescription("Dice 2");
+        }
+        if(result==3){view.setImageDrawable(getResources().getDrawable(R.drawable.dice3));
+            view.setContentDescription("Dice 3");
+        }
+        if(result==4){view.setImageDrawable(getResources().getDrawable(R.drawable.dice4));
+            view.setContentDescription("Dice 4");
+        }
+        if(result==5){view.setImageDrawable(getResources().getDrawable(R.drawable.dice5));
+            view.setContentDescription("Dice 5");
+        }
+        if(result==6){view.setImageDrawable(getResources().getDrawable(R.drawable.dice6));
+            view.setContentDescription("Dice 6");
+        }
     }
 
     public void rollDice(View v){
@@ -107,7 +119,7 @@ public class MainActivity extends AppCompatActivity {
         compTurnScore=0;
         turn=!turn;
         if(!turn) {
-            computerTurn(); 
+            computerTurn();
         }
         viewUpdate(null);
     }

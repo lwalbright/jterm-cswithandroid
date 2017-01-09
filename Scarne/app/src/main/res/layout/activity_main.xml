@@ -35,8 +35,8 @@
             android:layout_below="@id/two">
 
             <Button
-                android:layout_width="70dp"
-                android:layout_height="48dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:text="ROLL"
                 android:id="@+id/three"
                 android:layout_margin="5dp"
@@ -44,8 +44,8 @@
                 />
 
             <Button
-                android:layout_width="70dp"
-                android:layout_height="48dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:text="HOLD"
                 android:id="@+id/four"
                 android:layout_margin="5dp"

@@ -40,7 +40,7 @@ public class SimpleDictionary implements GhostDictionary {
             String word = line.trim();
             if (word.length() >= MIN_WORD_LENGTH)
               words.add(line.trim());
-        } //TODO: make a hashset for quick lookup in the isWord method
+        }
     }
 
     @VisibleForTesting
